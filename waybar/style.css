@@ -1,0 +1,102 @@
+@import "themes/mocha.css";
+
+* {
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 13px;
+  border: none;
+}
+
+window#waybar {
+  background: transparent;
+  color: rgba(180,190,254,0.9);
+}
+
+/* blocos dos módulos */
+
+#mpris,
+#workspaces,
+#clock,
+#pulseaudio,
+#custom-power {
+  background: rgba(30,30,46,0.75);
+  padding: 2px 4px;
+  margin: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+#workspaces button {
+  background: transparent;
+  color: @subtext1;
+  padding: 1px 12px;
+  margin: 2px;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+/* Modulo da esquerda - workspace ativo */
+
+#workspaces button.active {
+  background: @mauve;
+  color: @base;
+}
+
+#workspaces button.empty {
+  color: @overlay0;
+}
+
+#workspaces button:hover {
+  background: @surface0;
+  color: @text;
+}
+
+#workspaces button.urgent {
+  background: @red;
+  color: white;
+}
+
+
+/* clock */
+
+#clock:hover {
+  background: @surface0;
+  color: @text;
+}
+
+/* módulos da direita */
+
+#mpris {
+  background: rgba(30,30,46,0.75);
+  color: @green;
+  padding: 2px 10px;
+  margin: 5px;
+  border-radius: 8px;
+}
+
+#mpris:hover {
+  background: @surface0;
+  color: @text;
+}
+
+#pulseaudio:hover { 
+  background: @surface0;
+  color: @text;
+}
+
+
+#pulseaudio,
+#custom-power {
+  padding: 0 12px;
+}
+
+/* power button */
+
+#custom-power {
+  color: @red;
+  margin-right: 15px;
+}
+
+#custom-power:hover {
+  background: @surface0;
+  color: @text;
+}
