@@ -2,7 +2,7 @@
 @import "colors.rasi"
 
 configuration {
-	modi: "window,run,drun";
+	modi: "drun";
 	display-drun: "Applications";
 	display-window: "Windows";
 	display-run: "Run";
@@ -18,25 +18,26 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       1000px;
+    width:                       30%;
     x-offset:                    0px;
     y-offset:                    0px;
 
     /* properties for all widgets */
     enabled:                     true;
-    border:			 2px solid;
-    border-color:		 @secondary-container;
-    border-radius:               15px;
+    border:			             2px;
+    border-color:		         #7c3aed;
+    border-radius:               12px;
+    padding:                     15px;
     cursor:                      "default";
-    background-color:            @on-primary-fixed;
+    background-color:            rgba(255, 255, 255, 0.67);
 }
 
 mainbox {
     enabled:                     true;
-    spacing:                     0px;
+    spacing:                     10px;
     background-color:            transparent;
-    orientation:                 horizontal;
-    children:                    [ "imagebox", "listbox" ];
+    orientation:                 vertical;
+    children:                    [ inputbar, listview ];
 }
 
 imagebox {
@@ -62,11 +63,12 @@ dummy {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    padding:                     15px;
+    padding:                     6px;
+    expand:                      false;
     border-radius:               10px;
-    background-color:		 @on-primary;
-    text-color:			 @on-surface;
-    children:                    [ "textbox-prompt-colon", "entry" ];
+    background-color:		     rgba(255, 255, 255, 0.25);
+    text-color:			         #1a1a1a;
+    children:                    [ entry ];
 }
 textbox-prompt-colon {
     enabled:                     true;
@@ -82,19 +84,22 @@ entry {
     cursor:                      text;
     placeholder:                 "Search";
     placeholder-color:           inherit;
+    horizontal-align:            0.0;
+    expand:                      true;
+    padding:                     4px;
 }
 
 mode-switcher{
-    enabled:                     true;
+    enabled:                     false;
     spacing:                     20px;
     background-color:            transparent;
-    text-color:                  @primary-fixed;
+    text-color:                  #1a1a1a;
 }
 button {
     padding:                     15px;
     border-radius:               10px;
     background-color:            @on-primary;
-    text-color:                  inherit;
+    text-color:                  #1a1a1a;
     cursor:                      pointer;
 }
 button selected {
@@ -114,57 +119,62 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     10px;
+    spacing:                     6px;
     background-color:            transparent;
     text-color:                  @on-surface;
     cursor:                      "default";
 }
 
 element {
-    enabled:                     true;
-    spacing:                     15px;
-    padding:                     8px;
-    border-radius:               10px;
-    background-color:            transparent;
-    text-color:                  @on-surface;
-    cursor:                      pointer;
+    enabled: true;
+    spacing: 10px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.06); /* aplica em todos */
+    text-color: #1a1a1a;
+    cursor: pointer;
 }
+
+/* estado normal */
 element normal.normal {
-    background-color:            inherit;
-    text-color:                  inherit;
+    background-color: rgba(0, 0, 0, 0.06);
+    text-color: #1a1a1a;
 }
-element normal.urgent {
-    background-color:            @error;
-    text-color:                  @on-surface;
-}
+
+/* hover */
 element normal.active {
-    background-color:            @primary;
-    text-color:                  @on-surface;
+    background-color: rgba(124, 58, 237, 0.15);
+    text-color: #1a1a1a;
 }
+
+/* selecionado */
 element selected.normal {
-    background-color:            @primary;
-    text-color:                  @on-secondary;
+    background-color: #7c3aed;
+    text-color: #ffffff;
 }
-element selected.urgent {
-    background-color:            @error;
-    text-color:                  @on-secondary;
-}
+
+/* selecionado + hover */
 element selected.active {
-    background-color:            @error;
-    text-color:                  @on-secondary;
+    background-color: #6d28d9;
+    text-color: #ffffff;
 }
+
+/* urgente (raramente aparece, mas já deixa bonito) */
+element urgent {
+    background-color: rgba(239, 68, 68, 0.2);
+    text-color: #1a1a1a;
+}
+
 element-icon {
-    background-color:            transparent;
-    text-color:                  inherit;
-    size:                        32px;
-    cursor:                      inherit;
+    background-color: transparent;
+    size: 28px;
 }
+
 element-text {
-    background-color:            transparent;
-    text-color:                  inherit;
-    cursor:                      inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
 }
 
 message {
