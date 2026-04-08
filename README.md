@@ -1,5 +1,4 @@
 # first-hyprland-rice
 Hyprland rices
 
-Eu queria deixar claro que todos os arquivos vão ser oficialmente de outras pessoas... 
-dentro do proprio arquivo o nome do criador ja vai estar la então... boa sorte ai.
+Eu peguei diversos repos diferentes nessa minha config, é apenas algo meu que eu copiei de outras pessoas e fui mudando ao meu gosto 🙏🏻👊🏻
